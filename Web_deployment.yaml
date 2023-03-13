@@ -46,4 +46,3 @@ spec:
              - nc -z test 5000
           initialDelaySeconds: 60
           periodSeconds: 10
-
