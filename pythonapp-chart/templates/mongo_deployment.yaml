@@ -19,7 +19,7 @@ spec:
         - name: MONGODB_DATABASE
           valueFrom:
             secretKeyRef:
-              name: {{ .Release.Name }}-auth
+              name: mongodb-secret
               key: mongodb-db-name
         ports:
         - containerPort: 27017
