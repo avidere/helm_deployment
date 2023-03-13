@@ -6,8 +6,8 @@ replicaCount: 1
 
 images:
   
-  web-repository: avinashdere99/python:11
-  db-repository: mongo:3.6
+  webrepository: avinashdere99/python:11
+  dbrepository: mongo:3.6
   pullPolicy: Always
 
 imagePullSecrets: []
