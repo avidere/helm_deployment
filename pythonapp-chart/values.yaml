@@ -5,6 +5,9 @@
 replicaCount: 1
 
 image:
+  dbimage: mongo:3.6
+
+image:
   repository: avinashdere99/python:11
   pullPolicy: Always
 
