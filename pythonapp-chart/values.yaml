@@ -18,6 +18,8 @@ service:
 
 dbname: testdata
 
+dburl: mongodb
+
 ingress:
   enabled: false
   className: ""
