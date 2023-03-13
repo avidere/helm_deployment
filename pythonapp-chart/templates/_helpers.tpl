@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "pythonapp_chart.name" -}}
+{{- define "pythonapp-chart.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "pythonapp_chart.fullname" -}}
+{{- define "pythonapp-chart.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "pythonapp_chart.chart" -}}
+{{- define "pythonapp-chart.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "pythonapp_chart.labels" -}}
-helm.sh/chart: {{ include "pythonapp_chart.chart" . }}
-{{ include "pythonapp_chart.selectorLabels" . }}
+{{- define "pythonapp-chart.labels" -}}
+helm.sh/chart: {{ include "pythonapp-chart.chart" . }}
+{{ include "pythonapp-chart.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "pythonapp_chart.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "pythonapp_chart.name" . }}
+{{- define "pythonapp-chart.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "pythonapp-chart.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "pythonapp_chart.serviceAccountName" -}}
+{{- define "pythonapp-chart.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "pythonapp_chart.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "pythonapp-chart.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}

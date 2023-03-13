@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "pythonapp_chart.fullname" . }}
+  name: {{ include "pythonapp-chart.fullname" . }}
   labels:
-    {{- include "pythonapp_chart.labels" . | nindent 4 }}
+    {{- include "pythonapp-chart.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -12,4 +12,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "pythonapp_chart.selectorLabels" . | nindent 4 }}
+    {{- include "pythonapp-chart.selectorLabels" . | nindent 4 }}

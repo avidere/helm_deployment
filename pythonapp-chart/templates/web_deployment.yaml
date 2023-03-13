@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "pythonapp_chart.fullname" . }}
+  name: {{ include "pythonapp-chart.fullname" . }}
   labels:
-    {{- include "pythonapp_chart.labels" . | nindent 4 }}
+    {{- include "pythonapp-chart.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "pythonapp_chart.selectorLabels" . | nindent 6 }}
+      {{- include "pythonapp-chart.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -16,7 +16,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "pythonapp_chart.selectorLabels" . | nindent 8 }}
+        {{- include "pythonapp-chart.selectorLabels" . | nindent 8 }}
     spec:
       containers:
         - name: {{ .Chart.Name }}
