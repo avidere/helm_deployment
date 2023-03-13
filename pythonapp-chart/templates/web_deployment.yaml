@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.web_repository }}"
+          image: "{{ .Values.image.web-repository }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
           - name: MONGODB_HOST
