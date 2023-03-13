@@ -22,6 +22,12 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+          - name: MONGODB_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: mongodb-configmap
+                key: database_url
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
