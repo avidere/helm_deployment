@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: test-db
-        image: {{ .Values.image.database.repository }}
+        image: {{ .Values.image.repository }}
         env:
         - name: MONGODB_DATABASE
           valueFrom:
