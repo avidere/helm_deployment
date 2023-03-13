@@ -19,7 +19,7 @@ spec:
         - name: MONGODB_DATABASE
           valueFrom:
             secretKeyRef:
-              name: mongodb-secret
+              name: {{ include "pythonapp-chart.fullname" . }}
               key: mongodb-db-name
         ports:
         - containerPort: 27017
