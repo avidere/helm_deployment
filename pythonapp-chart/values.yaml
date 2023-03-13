@@ -4,11 +4,10 @@
 
 replicaCount: 1
 
-image:
-  dbimage: mongo:3.6
-
-image:
-  repository: avinashdere99/python:11
+images:
+  
+  web_repository: avinashdere99/python:11
+  db_repository: mongo:3.6
   pullPolicy: Always
 
 imagePullSecrets: []
